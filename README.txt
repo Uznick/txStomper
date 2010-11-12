@@ -29,9 +29,11 @@ from twisted.internet import reactor, protocol, defer
 
 from txstomper.protocol import StompProtocol, StompConnectError
 
-def on_message(msg):
+def on_message(msg, headers):
     print "on_message"
     print msg
+    print "headers"
+    print headers
 
 @defer.inlineCallbacks
 def start:
