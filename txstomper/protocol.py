@@ -117,7 +117,7 @@ class StompProtocol(Protocol):
             transaction_id = msg['headers']['transaction-id']
             
         # Call subscription callback with the message body
-        self._destination_callbacks[destination](msg['body'].replace(stomper.NULL, ''))
+        self._destination_callbacks[destination](msg['body'].replace(stomper.NULL, ''), msg['headers'])
         
         if message_id:
             logging.debug("acknowledging message id <%s>." % message_id)
